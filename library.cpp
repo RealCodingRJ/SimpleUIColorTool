@@ -49,3 +49,4 @@ char createColorUIWrapper(const int color, const int hexColor) {
 
     return color;
 }
+
