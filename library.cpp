@@ -18,7 +18,7 @@ namespace PosColorTypes {
 }
 
 
-inline auto colorsRGB(const PosColorTypes::ColorType& type, const std::string& label) {
+inline auto colorsRGB(const PosColorTypes::ColorType& type, const std::string& label) -> void {
     if (std::ofstream fileData("SelectedUserColor.json"); fileData.is_open()) {
         if (label.empty()) {
             std::cout << "EMPTY" << std::endl;
@@ -27,6 +27,12 @@ inline auto colorsRGB(const PosColorTypes::ColorType& type, const std::string& l
             const std::string colorLabel = type.colorX;
             fileData.write(colorLabel.c_str(), 1);
         }
+    }
+}
+
+auto getArgs(int index, char *argv[]) -> void {
+    for (auto indexChar = 0; indexChar < sizeof(char); indexChar++) {
+        std::cout << indexChar << argv[indexChar] << std::endl;
     }
 }
 
@@ -55,7 +61,7 @@ std::string enumByColor(const COLORS color) {
 }
 // This code will help a user Display Color of Choice...
 
-char createColorUIWrapper(const int color, const int hexColor) {
+auto createColorUIWrapper(int color, const int hexColor) -> char {
     if (genColorByHex(color) && genColorByHex(hexColor)) {
         const int indexHex = genColorByHex(color) + genColorByHex(hexColor);
         return indexHex;
@@ -73,4 +79,3 @@ char createColorUIWrapper(const int color, const int hexColor) {
 
     return color;
 }
-

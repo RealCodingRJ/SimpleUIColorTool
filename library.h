@@ -3,8 +3,8 @@
 #ifndef COLORDISPLAY_LIBRARY_H
 #define COLORDISPLAY_LIBRARY_H
 
-char createColorUIWrapper(char &color, int hexColor);
-
-int genColorByHex(int hex);
+auto createColorUIWrapper(char &color, int hexColor) -> char;
+auto genColorByHex(int hex) -> int;
+auto getArgs(int index, char *argv[]) -> void;
 
 #endif // COLORDISPLAY_LIBRARY_H
