@@ -1,5 +1,10 @@
 #include "library.h"
+
+#include <format>
+#include <fstream>
 #include <iostream>
+#include <vector>
+
 #include "ColorSelector/ColorSelectedByUser.cpp"
 
 // Pick a Color and Color will be Selected...
@@ -10,6 +15,17 @@ struct ColorType {
     std::string colorZ;
 };
 
+inline auto colorsRGB(const ColorType& type, const std::string& label) {
+    if (std::ofstream fileData("SelectedUserColor.json"); fileData.is_open()) {
+        if (label.empty()) {
+            std::cout << std::format("{}","EMPTY");
+        }
+        else {
+            const std::string colorLabel = type.colorX;
+            fileData.write(colorLabel.c_str(), 1);
+        }
+    }
+}
 
 std::string enumByColor(const COLORS color) {
     if (const ColorType type; color == COLORS::BLACK || type.colorX == "BLACK") {
