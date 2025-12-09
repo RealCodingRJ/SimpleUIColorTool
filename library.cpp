@@ -15,13 +15,13 @@ namespace PosColorTypes {
         std::string colorY;
         std::string colorZ;
     };
-
 }
+
 
 inline auto colorsRGB(const PosColorTypes::ColorType& type, const std::string& label) {
     if (std::ofstream fileData("SelectedUserColor.json"); fileData.is_open()) {
         if (label.empty()) {
-            std::cout << std::format("{}","EMPTY");
+            std::cout << "EMPTY" << std::endl;
         }
         else {
             const std::string colorLabel = type.colorX;
