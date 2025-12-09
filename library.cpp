@@ -9,13 +9,16 @@
 
 // Pick a Color and Color will be Selected...
 
-struct ColorType {
-    std::string colorX;
-    std::string colorY;
-    std::string colorZ;
-};
+namespace PosColorTypes {
+    struct ColorType {
+        std::string colorX;
+        std::string colorY;
+        std::string colorZ;
+    };
 
-inline auto colorsRGB(const ColorType& type, const std::string& label) {
+}
+
+inline auto colorsRGB(const PosColorTypes::ColorType& type, const std::string& label) {
     if (std::ofstream fileData("SelectedUserColor.json"); fileData.is_open()) {
         if (label.empty()) {
             std::cout << std::format("{}","EMPTY");
@@ -28,22 +31,22 @@ inline auto colorsRGB(const ColorType& type, const std::string& label) {
 }
 
 std::string enumByColor(const COLORS color) {
-    if (const ColorType type; color == COLORS::BLACK || type.colorX == "BLACK") {
+    if (const PosColorTypes::ColorType type; color == COLORS::BLACK || type.colorX == "BLACK") {
         const std::string black = "#000";
         return black;
     }
 
-    if (const ColorType type; color == COLORS::RED || type.colorY == "BLACK") {
+    if (const PosColorTypes::ColorType type; color == COLORS::RED || type.colorY == "BLACK") {
         const std::string red = "#ff0000";
         return red;
     }
 
-    if (const ColorType type; color == COLORS::GREEN || type.colorZ == "GREEN") {
+    if (const PosColorTypes::ColorType type; color == COLORS::GREEN || type.colorZ == "GREEN") {
         const std::string green = "#00ff00";
         return green;
     }
 
-    if (const ColorType type; color == COLORS::WHITE || type.colorX == "WHITE" ) {
+    if (const PosColorTypes::ColorType type; color == COLORS::WHITE || type.colorX == "WHITE" ) {
         const std::string white = "#fff";
         return white;
     }
