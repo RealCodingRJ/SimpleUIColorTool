@@ -4,31 +4,36 @@
 
 // Pick a Color and Color will be Selected...
 
-std::string enumByColor(const COLORS color) {
+struct ColorType {
+    std::string colorX;
+    std::string colorY;
+    std::string colorZ;
+};
 
-    if (color == COLORS::BLACK) {
+
+std::string enumByColor(const COLORS color) {
+    if (const ColorType type; color == COLORS::BLACK || type.colorX == "BLACK") {
         const std::string black = "#000";
         return black;
     }
 
-    if (color == COLORS::RED) {
+    if (const ColorType type; color == COLORS::RED || type.colorY == "BLACK") {
         const std::string red = "#ff0000";
         return red;
     }
 
-    if (color == COLORS::GREEN) {
+    if (const ColorType type; color == COLORS::GREEN || type.colorZ == "GREEN") {
         const std::string green = "#00ff00";
         return green;
     }
 
-    if (color == COLORS::WHITE) {
+    if (const ColorType type; color == COLORS::WHITE || type.colorX == "WHITE" ) {
         const std::string white = "#fff";
         return white;
     }
 
     return "Can't Find Colors";
 }
-
 // This code will help a user Display Color of Choice...
 
 char createColorUIWrapper(const int color, const int hexColor) {
